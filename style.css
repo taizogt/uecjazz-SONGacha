@@ -1,0 +1,187 @@
+body{
+    margin: 0 auto;
+    width: 1000px;
+    background-color: rgb(187, 241, 223);
+    text-align: center;
+}
+
+.header{
+    font-family: 'Slackside One', cursive;
+    font-size: xx-large;
+}
+/*.btn-rollGacha{
+    width: 256px;
+    height: 80px;
+    cursor: pointer;
+} */
+
+/*
+    https://mamewaza.com/support/blog/howto-use-flex.html
+*/
+.content-body{
+    width: 80%;
+    margin: auto;
+}
+.usage{
+    text-align: left;
+}
+.usage p{
+    font-size: 24px;
+}
+
+/*
+    https://saruwakakun.com/html-css/reference/box box26
+*/
+.option-box {
+    position: relative;
+    width: 80%;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    border: solid 3px #172b2e;
+    border-radius: 8px;
+}
+.option-box .option-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background-color: rgb(187, 241, 223);
+    color: #333;
+    font-weight: bold;
+}
+
+
+.option-style{
+    width: 590px;
+    margin: 0 auto;
+    padding: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+
+    font-size: x-large;
+}
+.option-style li{
+    margin: auto;
+    padding: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.option-content{
+    width: 80%;
+}
+.option-select{
+    width: 20%;
+}
+.select-option{
+    width: 120px;
+    height: 30px;
+    text-align: center;
+}
+
+.fi{
+    font-size: x-large;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ガチャボタン */
+.btn-rollGacha{
+    /* size */
+    margin: 20px 5px;
+    width: 200px;
+    padding: 10px 20px;
+    /* style */
+    background-color: #fff;
+    border: 0px solid;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 #aaaaaa;
+    /* font */
+    font-size: 25px;
+    font-family: 'Martin Mono', cursive;
+    font-weight: bold;
+    /* mouse */
+    cursor: pointer;
+}
+.btn-rollGacha:hover{
+    transform: translateY(5px);
+    box-shadow: none;
+    transition: 1.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* 結果表示のデザイン */
+.result-container{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 1rem 3rem;
+    /* デザイン https://jajaaan.co.jp/css/css-headline/ */
+    -webkit-transform: skew(-40deg);
+    transform: skew(-5deg);
+    color: #000;
+    background-image: -webkit-gradient(linear, left top, right top, from(#c4c734), to(#ffffff));
+    background-image: -webkit-linear-gradient(left, #c4c734 0%, #ffffff 100%);
+    background-image: linear-gradient(to right, #c4c734 0%, #ffffff 100%);
+
+    /* コンテナ周辺 */
+    display: flex;
+    flex-wrap: wrap; /* 折り返し */
+    align-items: center;
+}
+.result-container .result{
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100%;
+    text-align: left;
+}
+.result-container .title{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+}
+.result-container .page, .result-container .dif, .result-container .reg{
+    margin: 10px auto 0;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: large;
+    padding-left: 10px;
+    text-align: left;
+    width: 20%;
+}
+
+/* 結果表示のアニメーション */
+#display-result{
+    /* 右からスライドインする */
+    animation: 0.5s right-slide-in;
+}
+@keyframes right-slide-in {
+    0% {
+        transform: translateX(100vw) translateX(0px) skew(-45deg);
+    }
+    100% {
+        transform: translateX(0px) translateX(0px) skew(-5deg);
+    }
+}
+@media screen and (max-width: 1000px){
+    /* 結果表示のアニメーション */
+    .result-container{
+        /* 右からスライドインする */
+        animation: 0.5s right-slide-in;
+    }
+    @keyframes right-slide-in {
+        0% {
+            transform: translateX(10vw) translateX(0px) skew(-15deg);
+        }
+        100% {
+            transform: translateX(0px) translateX(0px) skew(-5deg);
+        }
+    }
+}
