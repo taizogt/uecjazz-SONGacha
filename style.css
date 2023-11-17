@@ -9,29 +9,24 @@ body{
     font-family: 'Slackside One', cursive;
     font-size: xx-large;
 }
-/*.btn-rollGacha{
-    width: 256px;
-    height: 80px;
-    cursor: pointer;
-} */
-
-/*
-    https://mamewaza.com/support/blog/howto-use-flex.html
-*/
+/* アプリの記述 */
 .content-body{
     width: 80%;
     margin: auto;
 }
+/* つかいかた */
 .usage{
     text-align: left;
 }
+.usage h1{
+    font-size: 48px;
+    font-family: 'Slackside One', cursive;
+}
 .usage p{
-    font-size: 24px;
+    font-size: 20px;
 }
 
-/*
-    https://saruwakakun.com/html-css/reference/box box26
-*/
+/* オプションボックス */
 .option-box {
     position: relative;
     width: 80%;
@@ -43,19 +38,18 @@ body{
 .option-box .option-title {
     position: absolute;
     display: inline-block;
-    top: -13px;
+    top: -30px;
     left: 10px;
     padding: 0 9px;
     line-height: 1;
-    font-size: 19px;
+    font-size: 36px;
+    font-family: 'slackside One',cursive;
     background-color: rgb(187, 241, 223);
     color: #333;
     font-weight: bold;
 }
-
-
 .option-style{
-    width: 590px;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
     display: -webkit-flex;
@@ -75,17 +69,30 @@ body{
     box-sizing: border-box;
 }
 .option-content{
-    width: 80%;
+    width: 70%;
+    font-size: 20px;
 }
-.option-select{
-    width: 20%;
+.option-setting{
+    width: 30%;
 }
-.select-option{
+/* オプション:select */
+.option-selector{
     width: 120px;
     height: 30px;
     text-align: center;
 }
-
+/* オプション：btn */
+.option-btn{
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+}
+.btnon{
+    background-color: chartreuse;
+    font-weight: bold;
+}
+/* 選曲対象 */
 .fi{
     font-size: x-large;
     font-family: 'Noto Sans JP', sans-serif;
@@ -101,18 +108,19 @@ body{
     background-color: #fff;
     border: 0px solid;
     border-radius: 30px;
-    box-shadow: 0 5px 0 #aaaaaa;
+    box-shadow: 0 8px 0 #aaaaaa;
     /* font */
     font-size: 25px;
     font-family: 'Martin Mono', cursive;
     font-weight: bold;
     /* mouse */
     cursor: pointer;
+    transition: 0.2s;
 }
 .btn-rollGacha:hover{
-    transform: translateY(5px);
+    transform: translateY(8px);
     box-shadow: none;
-    transition: 1.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.2s;
 }
 
 /* 結果表示のデザイン */
@@ -123,7 +131,6 @@ body{
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     padding: 1rem 3rem;
-    /* デザイン https://jajaaan.co.jp/css/css-headline/ */
     -webkit-transform: skew(-40deg);
     transform: skew(-5deg);
     color: #000;
@@ -147,9 +154,8 @@ body{
     width: 100%;
     text-align: center;
 }
-.result-container .page, .result-container .dif, .result-container .reg{
+.result-container .page, .result-container .dif, .result-container .reg, .result-container .key{
     margin: 10px auto 0;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     font-family: 'Noto Sans JP', sans-serif;
     font-size: large;
     padding-left: 10px;

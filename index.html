@@ -20,36 +20,48 @@
                 <h1>UECJAZZ きょくガチャ</h1>
             </div>
         </header>
+        <!-- main -->
         <div class="content-body" id="songacha">
             <div class="usage">
                 <h1>つかいかた</h1>
-                <p>「ガチャを回す」ボタンを押すとJAZZ STANDARD BIBLEに収録された<br>最大227曲の中からランダムに1曲が選ばれるよ！</p>
-                <p>UECJAZZの部員が考えた独断と偏見の難易度と定番度も<br>演奏の参考にしてみてね！</p>
+                <p>「ガチャを回す」ボタンを押すとJAZZ STANDARD BIBLEに収録された、最大227曲の中からランダムに1曲が選ばれるよ！</p>
+                <p>UECJAZZの部員が考えた独断と偏見の難易度と定番度で絞り込んだり、キーもランダムで選ばせたりできるよ！</p>
+                <p>曲選びの参考にしてみてね！</p>
             </div>
             <div class="option-box">
                 <span class="option-title">オプション</span>
                 <ul class="option-style">
                     <li class="option-content"><div>難易度：1 (簡単！？) ~ 5 (難しい！)</div></li>
-                    <li class="option-select"><select v-model="selectedDif" v-on:change="selectDifficulty" class="select-option">
+                    <li class="option-setting">
+                        <select v-model="selectedDif" v-on:change="selectDifficulty" class="option-selector">
                             <option v-for="(dif, index) in dif">
                                 {{ dif.value }}
                             </option>
                         </select>
                     </li>
                     <li class="option-content"><div>定番度：1 (やらない) ~ 5 (定番曲！)</div></li>
-                    <li class="option-select">
-                        <select v-model="selectedReg" v-on:change="selectRegularity" class="select-option">
+                    <li class="option-setting">
+                        <select v-model="selectedReg" v-on:change="selectRegularity" class="option-selector">
                             <option v-for="(reg, index) in reg">
                                 {{ reg.value }}
                             </option>
                         </select>
+                    </li>
+                    <li class="option-content"><div>キーランダム選択</div></li>
+                    <li class="option-setting">
+                        <button class="option-btn"  v-on:click="randomKeyToggle=!randomKeyToggle" :class="{btnon: randomKeyToggle}">
+                            <div v-if="randomKeyToggle==true">ON</div>
+                            <div v-else>OFF</div>
+                        </button>
                     </li>
                 </ul>
             </div>
             <div>
                 <p class="fi">
                     選曲対象: {{ filteredSongNum }} 曲</p>
-                <button class="btn-rollGacha" v-on:click="rollFilteredGacha()" id="btn-rollGacha"> ガチャを回す</button>
+                <button class="btn-rollGacha" v-on:click="rollFilteredGacha()" id="btn-rollGacha">
+                    ガチャを回す
+                </button>
                 <div v-if="gachaResult != undefined">
                     <div class="result-container" id="display-result">
                         <div class="result">抽選結果</div>
@@ -57,6 +69,8 @@
                         <div class="page">黒本 p.{{gachaResult.page}}</div>
                         <div class="dif">難易度 : {{gachaResult.difficulty}}</div>
                         <div class="reg">定番度 : {{gachaResult.regularity}}</div>
+                        <div class="key">キー：{{gachaResult.key}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
