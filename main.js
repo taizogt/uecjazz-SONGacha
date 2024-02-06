@@ -2,13 +2,23 @@ var vm = new Vue({
     el: '#songacha',
     data: {
         jsb1: undefined,
-        gachaResult: undefined,
+        gachaResult: {
+            title: 'ここに結果が表示されるよ',
+            page: '-',
+            regularity: '-',
+            difficulty: '-',
+            key: '-'
+        },
         selectedReg: '-',
         selectedDif: '-',
         filteredSong: undefined,
         filteredSongNum: undefined,
-        show: true,
+        showResultToggle: false,
         randomKeyToggle: false,
+        // 結果出力用
+        isButtonDisabled: false,
+        isAnim: false,
+        interval: null,
         // 定番度
         reg: [
             {value: '-', text: 'ランダム'},
@@ -74,7 +84,26 @@ var vm = new Vue({
             }else{
                 this.gachaResult.key='-';
             }
+            this.gachaResult.flag=true;
             console.log(this.gachaResult);
+        },
+        // アニメーション
+        showResult: function() {
+            this.isButtonDisabled = true;
+            this.showResultToggle = true;
+            if(this.isAnim==true || this.interval!=null) {
+                this.isAnim=false;
+                this.interval=null;
+                return
+            }
+            this.isAnim=true;
+            this.interval=setInterval(() => {
+                this.isAnim=false;
+                clearInterval(this.interval);
+                this.interval=null;
+                this.isButtonDisabled = false;
+            }, 900);
+            this.rollFilteredGacha();
         },
         // 選曲オプション：定番度
         selectRegularity: function() {

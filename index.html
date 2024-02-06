@@ -59,19 +59,16 @@
             <div>
                 <p class="fi">
                     選曲対象: {{ filteredSongNum }} 曲</p>
-                <button class="btn-rollGacha" v-on:click="rollFilteredGacha()" id="btn-rollGacha">
+                <button class="btn-rollGacha" v-on:click="showResult()" :disabled="isButtonDisabled" id="btn-rollGacha">
                     ガチャを回す
                 </button>
-                <div v-if="gachaResult != undefined">
-                    <div class="result-container" id="display-result">
-                        <div class="result">抽選結果</div>
-                        <div class="title">{{gachaResult.title}}</div>
-                        <div class="page">黒本 p.{{gachaResult.page}}</div>
-                        <div class="dif">難易度 : {{gachaResult.difficulty}}</div>
-                        <div class="reg">定番度 : {{gachaResult.regularity}}</div>
-                        <div class="key">キー：{{gachaResult.key}}</div>
-                        </div>
-                    </div>
+                <div class="result-container" :class="{ result_animation: isAnim, added_color: showResultToggle}">
+                    <div class="result">抽選結果</div>
+                    <div class="title">{{gachaResult.title}}</div>
+                    <div class="page">黒本 p.{{gachaResult.page}}</div>
+                    <div class="dif">難易度 : {{gachaResult.difficulty}}</div>
+                    <div class="reg">定番度 : {{gachaResult.regularity}}</div>
+                    <div class="key">キー：{{gachaResult.key}}</div>
                 </div>
             </div>
         </div>
