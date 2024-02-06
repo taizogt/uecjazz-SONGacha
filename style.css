@@ -1,0 +1,229 @@
+:root{
+    --site-color: rgb(187, 241, 223);
+    --grad-start: #c4c734;
+    --grad-end: #fff;
+}
+body{
+    margin: 0 auto;
+    width: 1000px;
+    background-color: var(--site-color);
+    text-align: center;
+}
+
+.header{
+    font-family: 'Slackside One', cursive;
+    font-size: xx-large;
+}
+/* アプリの記述 */
+.content-body{
+    width: 80%;
+    margin: auto;
+}
+/* つかいかた */
+.usage{
+    text-align: left;
+}
+.usage h1{
+    font-size: 48px;
+    font-family: 'Slackside One', cursive;
+}
+.usage p{
+    font-size: 20px;
+}
+
+/* オプションボックス */
+.option-box {
+    position: relative;
+    width: 80%;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    border: solid 3px #172b2e;
+    border-radius: 8px;
+}
+.option-box .option-title {
+    position: absolute;
+    display: inline-block;
+    top: -30px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 36px;
+    font-family: 'slackside One',cursive;
+    background-color: rgb(187, 241, 223);
+    color: #333;
+    font-weight: bold;
+}
+.option-style{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+
+    font-size: x-large;
+}
+.option-style li{
+    margin: auto;
+    padding: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.option-content{
+    width: 70%;
+    font-size: 20px;
+}
+.option-setting{
+    width: 30%;
+}
+/* オプション:select */
+.option-selector{
+    width: 120px;
+    height: 30px;
+    text-align: center;
+}
+/* オプション：btn */
+.option-btn{
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+}
+.btnon{
+    background-color: chartreuse;
+    font-weight: bold;
+}
+/* 選曲対象 */
+.fi{
+    font-size: x-large;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ガチャボタン */
+.btn-rollGacha{
+    /* size */
+    margin: 20px 5px;
+    width: 200px;
+    padding: 10px 20px;
+    /* style */
+    background-color: #fff;
+    border: 0px solid;
+    border-radius: 30px;
+    box-shadow: 0 8px 0 #aaaaaa;
+    /* font */
+    font-size: 25px;
+    font-family: 'Martin Mono', cursive;
+    font-weight: bold;
+    /* mouse */
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-rollGacha:hover{
+    transform: translateY(8px);
+    box-shadow: none;
+    transition: 0.2s;
+}
+
+/* 結果表示のデザイン1 */
+.result-container{
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    padding: 1rem 3rem;
+    color: #000;
+
+    /* コンテナ周辺 */
+    display: flex;
+    flex-wrap: wrap; /* 折り返し */
+    align-items: center;
+}
+.result-container .result{
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100%;
+    text-align: left;
+}
+.result-container .title{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+}
+.result-container .page, .result-container .dif, .result-container .reg, .result-container .key{
+    margin: 10px auto 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: large;
+    padding-left: 10px;
+    text-align: left;
+    width: 20%;
+}
+.added_color{
+    background-image: -webkit-gradient(linear, left top, right top, from(#c4c734), to(#ffffff));
+    background-image: -webkit-linear-gradient(left, var(--grad-start) 0%, var(--grad-end) 100%);
+    background-image: linear-gradient(to right, var(--grad-start) 0%, var(--grad-end) 100%);
+}
+
+/* 結果出力アニメーション */
+.result_animation {
+  animation-direction: normal;
+  animation-duration: 0.8s;
+  animation-name: show_result;
+  animation-timing-function: ease;
+  transform: scale(1, 1);
+}
+@keyframes show_result {
+  0% {
+    color: var(--site-color);
+    background: var(--site-color);
+  }
+  20% {
+    transform: scale(0.8, 0.8);
+    background: var(--site-color);
+    opacity: 0.0;
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    color: #ccc;
+    background-image: -webkit-linear-gradient(left, #ccc 0%, #ccc 100%);
+    background-image: linear-gradient(to right, #ccc 0%, #ccc 100%);
+  }
+  90% {
+    transform: scale(1, 1);
+    color: black;
+    background-image: -webkit-linear-gradient(left, var(--grad-start) 0%, var(--grad-end) 100%);
+    background-image: linear-gradient(to right, var(--grad-start) 0%, var(--grad-end) 100%);
+  }
+  100% {
+    background-image: -webkit-linear-gradient(left, var(--grad-start) 0%, var(--grad-end) 100%);
+    background-image: linear-gradient(to right, var(--grad-start) 0%, var(--grad-end) 100%);
+  }
+}
+/* スライドイン */
+@keyframes right-slide-in {
+    0% {
+        transform: translateX(100vw) translateX(0px) skew(-45deg);
+    }
+    100% {
+        transform: translateX(0px) translateX(0px) skew(-5deg);
+    }
+}
+@media screen and (max-width: 1000px){
+    /* 結果表示のアニメーション */
+    .result-container{
+        /* 右からスライドインする */
+        animation: 0.5s right-slide-in;
+    }
+    @keyframes right-slide-in {
+        0% {
+            transform: translateX(10vw) translateX(0px) skew(-15deg);
+        }
+        100% {
+            transform: translateX(0px) translateX(0px) skew(-5deg);
+        }
+    }
+}
